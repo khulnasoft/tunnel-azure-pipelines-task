@@ -1,0 +1,105 @@
+{
+    "manifestVersion": 1,
+    "id": "tunnel-official",
+    "publisher": "KhulnaSoftOfficial",
+    "version": "VERSION_PLACEHOLDER",
+    "name": "tunnel",
+    "description": "Tunnel is the world’s most popular open source vulnerability and misconfiguration scanner. It is reliable, fast, extremely easy to use, and it works wherever you need it.",
+    "repository": {
+        "type": "git",
+        "uri": "https://github.com/khulnasoft/tunnel-azure-pipelines-task"
+    },
+    "public": true,
+    "categories": [
+        "Azure Pipelines"
+    ],
+    "targets": [
+        {
+            "id": "Microsoft.VisualStudio.Services"
+        }
+    ],
+    "tags": [
+        "tunnel",
+        "vulnerability",
+        "security",
+        "scanner"
+    ],
+    "icons": {
+        "default": "images/extension-icon.png"
+    },
+    "files": [
+        {
+            "path": "tunnel-task"
+        },
+        {
+            "path": "ui/node_modules/vss-web-extension-sdk/lib",
+            "addressable": true,
+            "packagePath": "lib"
+        },
+        {
+            "path": "LICENSE",
+            "addressable": true
+        },
+        {
+            "path": "ui/build/static",
+            "addressable": true,
+            "packagePath": "static"
+        },
+        {
+            "path": "ui/build/index.html",
+            "addressable": true,
+            "packagePath": "index.html"
+        },
+        {
+            "path": "screenshot.png",
+            "addressable": true
+        },
+        {
+            "path": "images/tunnel.png",
+            "addressable": true,
+            "packagePath": "images/tunnel.png"
+        }
+    ],
+    "content": {
+        "license": {
+            "path": "LICENSE"
+        },
+        "details": {
+            "path": "marketplace.md"
+        }
+    },
+    "links": {
+        "home": {
+            "uri": "https://www.khulnasoft.com/"
+        },
+        "license": {
+            "uri": "./LICENSE"
+        }
+    },
+    "contributions": [
+        {
+            "id": "custom-build-release-task",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "tunnel-task"
+            }
+        },
+        {
+            "id": "tunnel-tab",
+            "type": "ms.vss-build-web.build-results-tab",
+            "description": "Results for tunnel scan(s)",
+            "targets": ["ms.vss-build-web.build-results-view"],
+            "properties": {
+                "name": "Tunnel",
+                "uri": "index.html",                
+                "supportsTasks": ["8f9cb13f-f551-439c-83e4-fac6801c3fab"]
+            }
+        }
+    ],
+    "scopes": [
+        "vso.build_execute"
+    ]
+}
